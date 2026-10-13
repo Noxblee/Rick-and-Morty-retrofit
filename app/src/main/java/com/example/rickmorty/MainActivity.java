@@ -2,6 +2,8 @@ package com.example.rickmorty;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +21,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView nazwaTV, gatunekTV, statusTV;
+    private int id = 0;
 
+    private ImageView zdjecieView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         Random random = new Random();
         int wylosowaneId = random.nextInt(826) + 1;
+        id = wylosowaneId;
 
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<List<Osoba>> call = jsonPlaceHolderApi.getOsoba(wylosowaneId);
+        Call<List<Osoba>> call = jsonPlaceHolderApi.getOsoba(id);
 
         call.enqueue(
                 new Callback<List<Osoba>>() {

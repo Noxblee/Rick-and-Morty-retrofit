@@ -8,6 +8,6 @@ import retrofit2.http.Path;
 
 public interface JsonPlaceHolderApi {
 
-    @GET("{wylosowaneId}")
-    public Call<List<Osoba>> getOsoba(@Path("wylosowaneId") int losujId);
+    @GET("{id}")
+    public Call<List<Osoba>> getOsoba(@Path("id") int id);
 }
