@@ -4,8 +4,10 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface JsonPlaceHolderApi {
-    @GET("character")
-    public Call<List<Osoba>> getOsoba();
+
+    @GET("{wylosowaneId}")
+    public Call<List<Osoba>> getOsoba(@Path("wylosowaneId") int losujId);
 }
