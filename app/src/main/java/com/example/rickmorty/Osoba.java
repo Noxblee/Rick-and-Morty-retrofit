@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 public class Osoba {
 
     private int id;
-    @SerializedName("name")
     private String name;
     private String species;
     private String gender;
