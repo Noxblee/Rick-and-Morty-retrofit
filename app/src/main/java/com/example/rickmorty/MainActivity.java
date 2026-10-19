@@ -2,6 +2,7 @@ package com.example.rickmorty;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView nazwaTV, gatunekTV, statusTV;
     private int id = 0;
     private ImageView zdjecieView;
+    private Button losujNastepneB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +43,16 @@ public class MainActivity extends AppCompatActivity {
         gatunekTV = findViewById(R.id.speciesTV);
         statusTV = findViewById(R.id.statusTV);
         zdjecieView = findViewById(R.id.imageView);
+        losujNastepneB = findViewById(R.id.nextB);
+
 
         losujPostac();
+        losujNastepneB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                losujPostac();
+            }
+        });
 
     }
 
